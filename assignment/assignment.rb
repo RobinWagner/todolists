@@ -21,6 +21,7 @@ class Assignment
   # Retrieve paginated results from DB
   #
   def find_allusers(offset, limit)
+    User.order(:updated_at).limit(limit).offset(offset)
       # accept offset and input input parameters
       # use the User Model class to find all Users, ordered by `updated_at` ascending, with specified row offset and row limit
       # return a collection of User instances that represent the specified page
