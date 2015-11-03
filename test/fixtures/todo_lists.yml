@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  list_due_date: 2015-11-03
+  list_name: MyString
+
+two:
+  list_due_date: 2015-11-03
+  list_name: MyString
