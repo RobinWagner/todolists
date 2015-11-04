@@ -52,15 +52,10 @@ class Assignment
   #
   def update_password(id, password_digest)
     User.find(id).update(password_digest: password_digest)
-      # accept an id and password_digest input parameters
-      # use the User Model class to update the `password_digest` for the User associated with the id primary key
-      # (no return is required)
   end
 
   def update_listname(id, name)
-      # accept an id and name input parameters
-      # use the TodoList Model class to update the `list_name` for the TodoList associated with id primary key 
-      # (no return is required)
+    TodoList.find(id).update(list_name: name)
   end 
 
   #
