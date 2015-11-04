@@ -12,9 +12,6 @@ class Assignment
 
   def create_todolist(params)
     TodoList.create(list_name: params[:name], list_due_date: params[:due_date])
-      # accept a hash of todolist properties (`:name` and `:due_date`) as an input parameter. Note these are not 100% the same as Model class.
-      # use the TodoList Model class to create a new user in the DB
-      # return an instance of the class with primary key (`id`), and dates (`created_at` and `updated_at`) assigned
   end
 
   #
@@ -22,21 +19,17 @@ class Assignment
   #
   def find_allusers(offset, limit)
     User.order(:updated_at).limit(limit).offset(offset)
-      # accept offset and input input parameters
-      # use the User Model class to find all Users, ordered by `updated_at` ascending, with specified row offset and row limit
-      # return a collection of User instances that represent the specified page
   end
 
   def find_alllists(offset, limit)
-      # accept offset and limit input parameters
-      # use the TodoList Model class to find all TodoLists, ordered by `list_due_date` descending, with specified row offset and row limit
-      # return a collection of TodoList instances that represent the specified page
+    TodoList.order(:listed_due_date).offset(offset).limit(limit)
   end
 
   #
   # Query DB with exact match
   #
   def find_user_byname(username)
+    User.find_by username: username
       # accept a username input parameter
       # use the User Model class to find all Users with the supplied username. Note that we have not yet constrained the username to be unique.
       # return a collection of User instances that match the provided username
