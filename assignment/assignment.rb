@@ -41,22 +41,17 @@ class Assignment
   #
   def get_user_byid(id)
     User.find(id)
-      # accept an id input parameter
-      # use the User Model class to get the User associated with the `id` primary key
-      # return the User instance that matches the provided id
   end
 
   def get_todolist_byid(id)
     TodoList.find(id)
-      # accept an id input parameter
-      # use the TodoList Model class to get the TodoList associated with the `id` primary key
-      # return the TodoList instance that matches the provided id
   end
 
   #
   # Update rows in DB
   #
   def update_password(id, password_digest)
+    User.find(id).update(password_digest: password_digest)
       # accept an id and password_digest input parameters
       # use the User Model class to update the `password_digest` for the User associated with the id primary key
       # (no return is required)
