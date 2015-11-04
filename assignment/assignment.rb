@@ -22,7 +22,7 @@ class Assignment
   end
 
   def find_alllists(offset, limit)
-    TodoList.order(:listed_due_date).offset(offset).limit(limit)
+    TodoList.order(list_due_date: :desc).offset(offset).limit(limit)
   end
 
   #
@@ -30,12 +30,10 @@ class Assignment
   #
   def find_user_byname(username)
     User.find_by username: username
-      # accept a username input parameter
-      # use the User Model class to find all Users with the supplied username. Note that we have not yet constrained the username to be unique.
-      # return a collection of User instances that match the provided username
   end 
 
-  def find_todolist_byname(name)
+  def find_todolist_byname(list_name)
+    TodoList.find_by list_name: list_name
       # accept a name input parameter
       # use the TodoList Model class to find all TodoLists with the supplied list_name. Note that list_name is not required to be unique.
       # return a collection of TodoList instances that match the provided name
