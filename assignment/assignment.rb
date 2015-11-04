@@ -33,10 +33,7 @@ class Assignment
   end 
 
   def find_todolist_byname(list_name)
-    TodoList.all.find_by list_name: list_name
-      # accept a name input parameter
-      # use the TodoList Model class to find all TodoLists with the supplied list_name. Note that list_name is not required to be unique.
-      # return a collection of TodoList instances that match the provided name
+    TodoList.all.where list_name: list_name
   end     
 
   #
